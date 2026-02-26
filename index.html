@@ -25,7 +25,7 @@
             --orange: #ff9922;
             --white: #ffffff;
             --darkblue: #0f172a; 
-            --glass: rgba(255, 255, 255, 0.02);
+            --glass: rgba(15, 23, 42, 0.85);
             --glass-bright: rgba(255, 255, 255, 0.05);
         }
 
@@ -47,25 +47,23 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Fixed Header */
+        /* Non-Fixed Header (Scrolls with page) */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             z-index: 50;
-            transition: all 0.3s ease;
+            background: transparent;
         }
 
-        /* Hero Background with High-Density MEP Coordination Image */
+        /* Hero Background with Night Industrial Visual */
         .hero-section {
-            background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 20%, rgba(15, 23, 42, 0.3) 100%), 
-                        url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=2000');
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.8) 20%, rgba(15, 23, 42, 0.2) 100%), 
+                        url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
             height: 95vh;
             min-height: 750px;
-            padding-top: 100px; /* Space for fixed header */
+            display: flex;
+            flex-direction: column;
         }
 
         .video-wrapper {
@@ -85,17 +83,17 @@
         .glass-card {
             background: var(--glass);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         .glass-card:hover {
             border-color: rgba(255, 153, 34, 0.5);
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(15, 23, 42, 0.95);
             transform: translateY(-8px);
         }
 
         .mini-glass-card {
-            background: var(--glass);
+            background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
@@ -110,58 +108,42 @@
             background: linear-gradient(to right, transparent, rgba(255,153,34,0.15), transparent);
         }
 
-        .nav-logo svg {
-            filter: drop-shadow(0 0 10px rgba(255, 153, 34, 0.4));
-        }
-
         .hero-title {
-            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            font-weight: 800;
         }
     </style>
 </head>
 <body class="selection:bg-orange selection:text-white">
 
-    <!-- Header containing the Logo -->
-    <header class="py-6 px-12 glass-bright">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="nav-logo">
-                <svg width="50" height="50" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="46" stroke="#ff9922" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.3"/>
-                    <circle cx="50" cy="50" r="7" fill="#ff9922"/>
-                    <!-- Trident Spokes -->
-                    <path d="M50 43 V15 M43 20 H57" stroke="#ff9922" stroke-width="4" stroke-linecap="round"/>
-                    <path d="M55 55 L78 78 M72 68 L81 72 L77 81" stroke="#ff9922" stroke-width="4" stroke-linecap="round"/>
-                    <path d="M45 55 L22 78 C18 82 28 88 33 78" stroke="#ff9922" stroke-width="4" stroke-linecap="round"/>
-                </svg>
+    <!-- Hero Section Container -->
+    <section class="hero-section relative">
+        <!-- Header positioned at the top of the hero -->
+        <header class="py-10 px-12">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="nav-logo">
+                    <svg width="55" height="55" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="46" stroke="#ff9922" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.3"/>
+                        <circle cx="50" cy="50" r="7" fill="#ff9922"/>
+                        <path d="M50 43 V15 M43 20 H57" stroke="#ff9922" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M55 55 L78 78 M72 68 L81 72 L77 81" stroke="#ff9922" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M45 55 L22 78 C18 82 28 88 33 78" stroke="#ff9922" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="text-[11px] tracking-[0.5em] text-white uppercase font-bold hidden md:block opacity-60">
+                    BIM &bull; VDC &bull; CAD &bull; MEP
+                </div>
             </div>
-            <div class="text-[10px] tracking-[0.4em] text-white/40 uppercase font-bold hidden md:block">
-                Precision &bull; Partnership &bull; Excellence
-            </div>
-        </div>
-    </header>
+        </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section relative flex items-center">
-        <!-- Hero Content -->
-        <div class="container mx-auto px-16">
-            <div class="max-w-5xl">
-                <h1 class="hero-title text-7xl md:text-9xl font-bold text-white tracking-tighter leading-[1] mb-20">
-                    MEP / VDC / BIM <br>
+        <!-- Hero Content Center -->
+        <div class="container mx-auto px-16 flex-grow flex flex-col justify-center">
+            <div class="max-w-6xl">
+                <h1 class="hero-title text-6xl md:text-8xl lg:text-9xl text-white tracking-tight leading-[1] mb-24">
+                    BIM / VDC / CAD <br>
                     Services and <br>
                     <span class="text-orange">Consultancy</span>
                 </h1>
-
-                <!-- Professional Consultancy Card -->
-                <div class="glass-card max-w-lg p-10 rounded-2xl border-l-4 border-l-orange">
-                    <h3 class="text-white font-bold text-xl mb-3 tracking-wide">Integrated Design Support</h3>
-                    <p class="text-gray-400 text-md leading-relaxed mb-8">
-                        Precision-driven BIM Coordination, HVAC Duct Detailing, and Electrical System Architecture. We transform complex engineering data into construction-ready digital assets.
-                    </p>d
-                    <a href="mailto:info@cadservicesindia.com" class="group text-white text-sm font-bold uppercase tracking-widest flex items-center hover:text-orange transition">
-                        Request a Specialist Consultation
-                        <i class="fas fa-chevron-right ml-3 group-hover:translate-x-2 transition-transform text-orange"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -175,7 +157,7 @@
                     <h2 class="text-4xl font-light tracking-[0.4em] text-white uppercase">Coordination Logic</h2>
                 </div>
                 <div class="video-wrapper">
-                    <iframe src="https://docs.google.com/videos/d/1CJklYQAns6IDwSL_yJGIO2AMMm5ly7fvQlE8Mq2ET7w/edit?usp=sharing" allowfullscreen></iframe>
+                    <iframe src="https://docs.google.com/videos/d/1CJklYQAns6IDwSL_yJGIO2AMMm5ly7fvQlE8Mq2ET7w/edit?usp=sharing" title="MEP Coordination Walkthrough" allowfullscreen></iframe>
                 </div>
                 <p class="mt-12 text-gray-500 font-light text-md italic tracking-wide">
                     Live coordination rendering: Resolving architectural clashes through technical foresight.
@@ -206,7 +188,7 @@
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <span class="px-6 py-2.5 bg-white/5 rounded-xl text-xs text-orange font-bold uppercase tracking-widest">HVAC Detailing</span>
-                        <span class="px-6 py-2.5 bg-white/5 rounded-xl text-xs text-orange font-bold uppercase tracking-widest">Spool Gen</span>
+                        <span class="px-6 py-2.5 bg-white/5 rounded-xl text-xs text-orange font-bold uppercase tracking-widest">Shop Drawings</span>
                     </div>
                 </article>
 
@@ -221,7 +203,7 @@
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <span class="px-6 py-2.5 bg-white/5 rounded-xl text-xs text-orange font-bold uppercase tracking-widest">Power Grids</span>
-                        <span class="px-6 py-2.5 bg-white/5 rounded-xl text-xs text-orange font-bold uppercase tracking-widest">Circuitry</span>
+                        <span class="px-6 py-2.5 bg-white/5 rounded-xl text-xs text-orange font-bold uppercase tracking-widest">Coordination</span>
                     </div>
                 </article>
 
@@ -257,7 +239,7 @@
             </div>
         </section>
 
-        <!-- Other Services Extension -->
+        <!-- Extended Technical Expertise -->
         <section class="pb-48 pt-16">
             <div class="text-center mb-24">
                 <h2 class="text-4xl font-light mb-6 text-white tracking-widest uppercase">Extended Technical Expertise</h2>
@@ -268,54 +250,46 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- CAD Drafting Services -->
                 <div class="mini-glass-card p-10 rounded-3xl group">
-                    <i class="fas fa-pen-nib text-orange text-2xl mb-6 opacity-60 group-hover:opacity-100 transition-opacity"></i>
+                    <i class="fas fa-pen-nib text-orange text-2xl mb-6 opacity-60"></i>
                     <h4 class="text-white font-bold text-xl mb-3">CAD Drafting Services</h4>
                     <p class="text-gray-500 text-sm font-light">Precision 2D and 3D drafting for multi-disciplinary engineering requirements.</p>
                 </div>
 
-                <!-- Architectural Drafting Services -->
                 <div class="mini-glass-card p-10 rounded-3xl group">
-                    <i class="fas fa-university text-orange text-2xl mb-6 opacity-60 group-hover:opacity-100 transition-opacity"></i>
+                    <i class="fas fa-university text-orange text-2xl mb-6 opacity-60"></i>
                     <h4 class="text-white font-bold text-xl mb-3">Architectural Drafting</h4>
                     <p class="text-gray-500 text-sm font-light">Detailed architectural layouts, floor plans, and elevation drawings with localized code compliance.</p>
                 </div>
 
-                <!-- Structural Drafting Services -->
                 <div class="mini-glass-card p-10 rounded-3xl group">
-                    <i class="fas fa-project-diagram text-orange text-2xl mb-6 opacity-60 group-hover:opacity-100 transition-opacity"></i>
+                    <i class="fas fa-project-diagram text-orange text-2xl mb-6 opacity-60"></i>
                     <h4 class="text-white font-bold text-xl mb-3">Structural Drafting</h4>
-                    <p class="text-gray-400 font-medium text-sm mb-1 text-orange/80">Support & Framework</p>
                     <p class="text-gray-500 text-sm font-light">Comprehensive steel and concrete detailing for robust industrial and commercial frameworks.</p>
                 </div>
 
-                <!-- Construction Documentation Services -->
                 <div class="mini-glass-card p-10 rounded-3xl group">
-                    <i class="fas fa-file-contract text-orange text-2xl mb-6 opacity-60 group-hover:opacity-100 transition-opacity"></i>
+                    <i class="fas fa-file-contract text-orange text-2xl mb-6 opacity-60"></i>
                     <h4 class="text-white font-bold text-xl mb-3">Construction Documentation</h4>
                     <p class="text-gray-500 text-sm font-light">Construction-ready blueprint sets and technical specifications for seamless on-site execution.</p>
                 </div>
 
-                <!-- BIM Services -->
                 <div class="mini-glass-card p-10 rounded-3xl group">
-                    <i class="fas fa-cube text-orange text-2xl mb-6 opacity-60 group-hover:opacity-100 transition-opacity"></i>
+                    <i class="fas fa-cube text-orange text-2xl mb-6 opacity-60"></i>
                     <h4 class="text-white font-bold text-xl mb-3">BIM Services</h4>
                     <p class="text-gray-500 text-sm font-light">Full-scale Building Information Modeling (Level 2 & 3) for lifecycle project management.</p>
                 </div>
 
-                <!-- 3D Rendering Services -->
                 <div class="mini-glass-card p-10 rounded-3xl group">
-                    <i class="fas fa-vr-cardboard text-orange text-2xl mb-6 opacity-60 group-hover:opacity-100 transition-opacity"></i>
+                    <i class="fas fa-vr-cardboard text-orange text-2xl mb-6 opacity-60"></i>
                     <h4 class="text-white font-bold text-xl mb-3">3D Rendering Services</h4>
                     <p class="text-gray-500 text-sm font-light">Photorealistic visualizations and cinematic walkthroughs that bring technical concepts to life.</p>
                 </div>
 
-                <!-- Scan to BIM Services -->
                 <div class="mini-glass-card p-10 rounded-3xl group lg:col-span-3">
                     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
                         <div>
-                            <i class="fas fa-satellite-dish text-orange text-2xl mb-6 opacity-60 group-hover:opacity-100 transition-opacity"></i>
+                            <i class="fas fa-satellite-dish text-orange text-2xl mb-6 opacity-60"></i>
                             <h4 class="text-white font-bold text-xl mb-3">Scan to BIM Services</h4>
                             <p class="text-gray-500 text-sm font-light max-w-2xl">Converting point cloud data from laser scans into accurate 3D BIM models for renovation and heritage projects.</p>
                         </div>
