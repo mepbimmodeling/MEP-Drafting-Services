@@ -57,7 +57,7 @@
         /* Hero Background with Night Industrial Visual */
         .hero-section {
             background: linear-gradient(to right, rgba(15, 23, 42, 0.8) 20%, rgba(15, 23, 42, 0.2) 100%), 
-                        url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=2000');
+                        url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=2000');
             background-size: cover;
             background-position: center;
             height: 95vh;
@@ -112,13 +112,27 @@
             text-shadow: 0 4px 20px rgba(0,0,0,0.8);
             font-weight: 800;
         }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: var(--orange);
+            opacity: 1 !important;
+        }
+        /* Scroll margin to prevent content being hidden if the header were fixed, 
+           but also useful for spacing in general. */
+        .scroll-mt-20 {
+            scroll-margin-top: 5rem;
+        }
     </style>
 </head>
 <body class="selection:bg-orange selection:text-white">
 
     <!-- Hero Section Container -->
     <section class="hero-section relative">
-        <!-- Header positioned at the top of the hero -->
+        <!-- Header positioned at the top of the hero - Non-Fixed -->
         <header class="py-10 px-12">
             <div class="container mx-auto flex justify-between items-center">
                 <div class="nav-logo">
@@ -130,9 +144,12 @@
                         <path d="M45 55 L22 78 C18 82 28 88 33 78" stroke="#ff9922" stroke-width="4" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <div class="text-[11px] tracking-[0.5em] text-white uppercase font-bold hidden md:block opacity-60">
-                    BIM &bull; VDC &bull; CAD &bull; MEP
-                </div>
+                <!-- Updated Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-12">
+                    <a href="#pillars" class="nav-link text-[11px] tracking-[0.3em] text-white uppercase font-bold opacity-60">The Pillars</a>
+                    <a href="#expertise" class="nav-link text-[11px] tracking-[0.3em] text-white uppercase font-bold opacity-60">Expertise</a>
+                    <a href="https://mep-drafting-services.vercel.app/blog.html" class="nav-link text-[11px] tracking-[0.3em] text-white uppercase font-bold opacity-60">Blog</a>
+                </nav>
             </div>
         </header>
 
@@ -167,7 +184,7 @@
         <div class="section-divider mb-40"></div>
 
         <!-- Specialized Disciplines -->
-        <section class="pb-32">
+        <section id="pillars" class="pb-32 scroll-mt-20">
             <div class="text-center mb-20 lg:mb-32">
                 <h2 class="text-5xl font-light mb-8 text-white tracking-widest uppercase">The Pillars</h2>
                 <p class="text-gray-400 max-w-4xl mx-auto text-xl font-light leading-relaxed">
@@ -240,7 +257,7 @@
                         <h3 class="text-4xl font-bold text-orange tracking-tight">Consultancy</h3>
                     </div>
                     <p class="text-gray-400 mb-10 leading-relaxed text-xl font-light flex-grow">
-                        <strong class="text-white font-medium">Moving beyond the blueprint.</strong> Think of us as an extension of your own engineering team. We move past standard drafting to offer proactive value engineering and advanced clash detection—spotting expensive on-site problems on our screens to save you thousands in rework.
+                        <strong class="text-white font-medium">Moving beyond the blueprint.</strong> Think of us as an extension of your own engineering team. We move past standard drafting to offer proactive value engineering and advanced clash detection—spotexpensive on-site problems on our screens to save you thousands in rework.
                     </p>
                     <div class="flex items-center mt-auto">
                         <span class="w-4 h-4 bg-orange rounded-full mr-5 shadow-[0_0_15px_rgba(255,153,34,0.6)] animate-pulse"></span>
@@ -251,7 +268,7 @@
         </section>
 
         <!-- Extended Technical Expertise -->
-        <section class="pb-48 pt-16">
+        <section id="expertise" class="pb-48 pt-16 scroll-mt-20">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-light mb-6 text-white tracking-widest uppercase">Extended Technical Expertise</h2>
                 <div class="w-12 h-px bg-orange/40 mx-auto mb-8"></div>
@@ -342,7 +359,7 @@
     <!-- Professional Sign-off (Minimal) -->
     <footer class="py-24 border-t border-white/5 text-center">
         <p class="text-gray-800 text-[11px] tracking-[1.2em] uppercase font-bold">
-            &copy; 2024 &bull; MEP Drafting &bull; Precision Systems &bull; Global VDC
+            &copy; 2026 &bull; MEP Drafting Services & Consultancy
         </p>
     </footer>
 
