@@ -28,3 +28,23 @@
   border-color:rgba(255,255,255,.18);
   transform:skewY(10deg);
 }
+
+
+/* MEP drafting section replacement */
+.mep-drafting-visual {
+  background: #0b1118;
+}
+.mep-drafting-visual img {
+  min-height: 360px;
+  filter: saturate(.9) contrast(1.04);
+}
+.mep-drafting-visual .scan-caption {
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 640px) {
+  .mep-drafting-visual img {
+    min-height: 260px;
+  }
+}
